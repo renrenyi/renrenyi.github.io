@@ -1,5 +1,10 @@
 # About
 
+这是来自一位网上朋友制作的博客模板，非常感谢这位朋友无私的分享。
+
+
+以下是其Readme原文：
+
 This is my blog based on jekyll. And I change the style and interactive. If you want to use this model of the blog. **Please give a star at this repository**. Then you can clone it as your blog model.
 
 You can visit [here](http://gaohaoyang.github.io) to see this blog.
