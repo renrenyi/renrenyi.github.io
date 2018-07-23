@@ -12,59 +12,54 @@ excerpt:
 
 ## 序
 
-一直以来都想搭建一个自己的博客，但是近半年做项目太忙，再加上教研室的网络很坑爹，所以也一直没顾得上。之前用过 WordPress 托管在免费的京东云擎上，但是速度太慢。在知乎上看到一些相关的内容，于是选择了在github上用jekyll搭建博客。
+我是个比较懒的人。
+从我个人角度而言，对于学习，主要是三个阶段。
+
+一是，知道机器学习某个模型可以干什么（什么应用场景，是分类、聚类、预测？？），经过简单的修改能够把网上的代码应用到自己的项目中。知道如何输入数据，如何取得结果。
+
+二是，能够对模型的内部数学算法有个大致的了解，了解模型如何进行改进、怎么改进。我现在想要达到的就是这个水平，这样就可以大致吃饱饭啦。
+
+三是，从数学角度对模型的理解，完全理解其数学模型的内涵。其实，我觉得这样的人，都是大牛牛，完全有能力改进模型后创建自己的模型。
+
+我没有太大的理想，而且我说过我比较懒，所以想找着快速学会的想法，进行我自己的学习。
 
 ---
 
-## 搭建过程
+## 机器学习是什么？
 
-在jekyll的官网上 [http://jekyllrb.com/](http://jekyllrb.com/) 其实已经说得比较明白了，我在这里还是简单的说一下吧。我用的是Windows系统。    
-主要环节有：安装Ruby，安装RubyGems，安装jekyll，安装代码高亮插件，安装node.js
+额，就是，我们想学的东西。
 
----
+我给大家几个网址，有兴趣可以看一看，不过我这个人对于定义性东西没太多兴趣，所以就不想写了。
 
-### 安装Ruby
+https://baike.baidu.com/item/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/217599?fr=aladdin
 
-ruby官网下载安装：[https://www.ruby-lang.org/en/downloads/](https://www.ruby-lang.org/en/downloads/)
+https://baijiahao.baidu.com/s?id=1591709318502145890&wfr=spider&for=pc
 
-安装完成后配置环境变量
-
-在命令提示符中，得到ruby版本号，如下图，即安装成功
-![ruby-v]({{ "/css/pics/ruby-v.png"}})
+http://36kr.com/p/5093721.html
 
 ---
 
-### 安装RubyGems
+## 杂说
 
-官网下载 [http://rubygems.org/pages/download](http://rubygems.org/pages/download) rubygems-2.4.5.zip   
+我喜欢吃栗子，所以我觉得学习最好从例子开始，“举个栗子”。从例子中可以更方便地明白各种定义的含义，比单纯地定义或者理论有趣多了。
 
-cd到RubyGems目录   
+因为我之前也看过一些有关的知识，所以我想把自己现阶段所了解的讲一下。
 
-![ruby-gems]({{ "/css/pics/ruby-gems.png"}})    
+用python，我也是第一次用python。安装python的教程自己网上百度吧。我个人建议安装3.5.x版本，因为后面需要用到TensorFlow，当前最新的3.6.x貌似支持得不好，不要给自己挖坑。
 
-执行安装   
+http://www.runoob.com/python/python-install.html
 
-![ruby-gems-setup]({{"/css/pics/ruby-gems-setup.png"}})   
+以后要学习Numpy、Pandas和Matplotlib（没关系，现在可以不管这些是什么），如果你用过MATLAB，恭喜你，这一部分几乎可以省略了，稍微看看代码格式，简单看1-2个小时视频应该就没问题了，遇到问题就谷歌百度嘛。按照我的理解，会R的应该对这些也会觉得很简单。下面是几个相关视频，可以看看，看完了应该就会了。
 
----
+https://morvanzhou.github.io/tutorials/python-basic/basic/
 
-### 用RubyGems安装Jekyll
+https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/
 
-执行下面的语句安装   
+https://morvanzhou.github.io/tutorials/data-manipulation/plt/
 
-![jekyll-setup]({{"/css/pics/jekyll-setup.png"}})   
+学习之前可以把环境搭好，什么python安装好，Numpy、Pandas和Matplotlib装上去，然后再装上scikit-learn（这个稍微麻烦一点），还有装Anaconda3和PyCharm，再有就是TensorFlow。运气好一天可以搞好，运气不好，到处都是坑，挺烦的。具体问题涉及到具体再提。
 
-安装结束画面   
 
-![jekyll-setup-finish]({{"/css/pics/jekyll-setup-finish.png"}})   
-
-至此jekyll就已经安装完毕了，后续就是个性化的自己设定了。   
 
 ---
-
-### 创建博客
-
-在d盘新建一个工作区jekyllWorkspace
-
-
 

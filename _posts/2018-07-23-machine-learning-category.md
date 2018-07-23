@@ -68,3 +68,10 @@ cd到RubyGems目录
 
 
 
+https://morvanzhou.github.io/tutorials/machine-learning/ML-intro/1-1-machine-learning/
+
+https://blog.csdn.net/by4_Luminous/article/details/53341334
+
+https://blog.csdn.net/sqc3375177/article/details/78679603
+
+https://www.cnblogs.com/xienaoban/p/6798063.html
