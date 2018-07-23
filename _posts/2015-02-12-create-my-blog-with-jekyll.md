@@ -2,7 +2,7 @@
 layout: post
 title:  "机器学习分类"
 date:   2018-07-23 20:43:54
-categories: MLIntro
+categories: 机器学习
 excerpt: 
 ---
 
