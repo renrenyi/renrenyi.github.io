@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 关于博主
+title: 关于--博主
 permalink: /about/
 icon: glyphicon-heart
 ---
