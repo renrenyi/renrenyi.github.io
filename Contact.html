@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>BAI Cong</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="./css/style.css" media="screen" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700" />
+    <link rel="stylesheet" href="./css/flexslider.css" media="screen" />
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/jQuery.BlackAndWhite.min.js"></script>
+    <script src="./js/jquery.easing-1.3.min.js"></script>
+    <script src="./js/jquery.flexslider-min.js"></script>
+    <script src="./js/jquery.isotope.min.js"></script>
+    <script src="./js/jquery.jcarousel.min.js"></script>
+    <script src="./js/jquery.touchSwipe.min.js"></script>
+    <script src="https://maps.google.cn/maps/api/js?sensor=false"></script>
+    <script src="./js/respond.min.js"></script>
+    <script src="./js/selectnav.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script type="text/javascript" src="http://rework.reworkmedia.net/[JS library]"></script>
+    <!--[if (gte IE 6)&(lte IE 8)]>
+      <script type="text/javascript" src="./js/selectivizr-min.js"></script>
+      <noscript><link rel="stylesheet" href="http://rework.reworkmedia.net/[fallback css]" /></noscript>
+    <![endif]-->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-32209063-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://code.google.cn/apis/maps/documentation/javascript/examples/default.css" />
+    <script type="text/javascript" src="http://maps.google.cn/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        var map;
+        var marker;
+        var geocoder;
+        var markerArr = [];
+        var infowindowArr = [];
+
+        function init() {
+            geocoder = new google.maps.Geocoder();
+            var myLatlng = new google.maps.LatLng(31.025, 121.433);
+            var myOptions = {
+                zoom: 14,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map"), myOptions);
+            map.addMarker(myLatlng);
+
+            var control = document.getElementById("control");
+            control.style.display = "block";
+            map.controls[google.maps.ControlPosition.TOP].push(control);
+
+
+            google.maps.event.addListener(map, 'click', function (event) {
+                clearOverLays();
+                markerTo.setOptions({
+                    position: event.latLng,
+                    map: map
+                });
+                startSearchByLatlng(event.latLng);
+            });
+        }
+
+
+        function createMarker(point, address, name, tel) {  //创建标记内容及标记的鼠标事件
+            var marker = new GMarker(point);
+            var html = '<div>' +
+           '<a >Name:' + name + '</a><br/>' +
+          '<a >Address:' + address + '</a><br/>' +
+          '<a >telephone:' + tel + '</a>' +
+           '</div>';
+            GEvent.addListener(marker, "mouseover", function () {
+                marker.openInfoWindowHtml(html);
+            });
+            GEvent.addListener(marker, "mouseout", function () {
+                marker.closeInfoWindow();
+            });
+            GEvent.addListener(marker, "click", function () {
+                map.setCenter(point, 12);
+            });
+            return marker;
+        }
+
+        function startSearchByAddress() {
+            var address = document.getElementById("address").value;
+            clearOverLays();
+            if (geocoder) {
+                geocoder.geocode({
+                    'address': address
+                }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        addMarker(results[0].geometry.location);
+                        parent.document.getElementById("location").value = results[0].formatted_address;
+                    } else {
+                        alert(status);
+                    }
+                });
+            }
+        }
+
+        function startSearchByLatlng(location) {
+            clearOverLays();
+            if (geocoder) {
+                geocoder.geocode({
+                    'latLng': location
+                }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        addInfowindow(location, results[0].formatted_address);
+                    } else {
+                        alert(status);
+                    }
+                });
+            }
+        }
+
+        function clearOverLays() {
+            if (markerArr) {
+                for (i in markerArr) {
+                    markerArr[i].setMap(null);
+                }
+                markerArr.length = 0;
+            }
+            if (infowindowArr) {
+                for (i in infowindowArr) {
+                    infowindowArr[i].setMap(null);
+                }
+                infowindowArr.length = 0;
+            }
+        }
+
+        function addMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+            markerArr.push(marker);
+        }
+
+        function addInfowindow(location, address) {
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setPosition(location);
+            infowindow.setContent("纬度:" + location.lat() + "<br/>经度:" + location.lng() + "<br/>地点:" + address);
+            infowindow.open(map);
+
+            infowindowArr.push(infowindow);
+
+            parent.document.getElementById("location").value = address;
+            parent.document.getElementById("latitude").value = location.lat();
+            parent.document.getElementById("longitude").value = location.lng();
+        }
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        #allmap {
+            width: 900px;
+            height: 400px;
+            overflow: hidden;
+            hidden;
+            margin: 0;
+        }
+    </style>
+
+</head>
+<body onload="init();">
+    <!-- Main Container -->
+    <div id="body-wrapper">
+        <!-- Header -->
+        <div id="header" class="container clearfix">
+            <a href="./index.html" id="logo">
+                <img src="./images/logo33.png" style="width: 400px; height: 120px; margin-left: -21px;"
+                    alt="" /></a>
+            <!-- Navigation -->
+            <ul id="navigation">
+                <li><a href="./index.html">Home</a>
+                    <!--<ul>
+                    <li><a href="./homepage_v2.html">Simple Version</a></li>
+                </ul>-->
+                </li>
+                <li><a href="./Education.html">Education</a>
+                    <ul>
+                        <li><a href="Education.html#education">Education Background</a></li>
+                        <li><a href="Education.html#research">Academic Achievements</a></li>
+                        <li><a href="Education.html#QualificationsAndSkills">Qualifications And Skills</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Experience.html">Experience</a>
+                    <ul>
+                        <li><a href="Experience.html#intership">Internship</a></li>
+                        <li><a href="Experience.html#campus">Campus Activity</a></li>
+                    </ul>
+                </li>
+                <li><a href="./Honor.html">Honor</a>
+                    <ul>
+                        <li><a href="Honor.html#StudyAndResearch">Study And Research</a></li>
+                        <li><a href="Honor.html#CampusActivity">Campus Activity</a></li>
+                        <li><a href="Honor.html#ComprehensiveQuality">Comprehensive Quality</a></li>
+                    </ul>
+                </li>
+                <li class="current"><a href="./Family.html">My Family</a> </li>
+            </ul>
+            <!-- /Navigation -->
+        </div>
+        <!-- /Header -->
+        <!-- Content -->
+
+
+        <div id="content" class="container clearfix">
+            <h1 class="page-title-inner fixed">
+                <!--     <span class="section-title">Beliefs</span> <span style="font-size: 30px; line-height: 1.5;">
+                    In pursuit of doing</span> <span class="accent">RIGHT </span><span style="font-size: 30px;">
+                        thing,</span>
+                <br />
+                <span style="font-size: 30px;">and doing things </span><span class="accent">RIGHT<span
+                    style="font-size: 30px; color:Black;">.</span> </span>-->
+
+                <span class="section-title">Beliefs</span>In pursuit of doing <span class="accent">RIGHT</span> thing,<br />
+                and doing things <span class="accent">RIGHT</span>.
+            </h1>
+            <!-- Google Map -->
+            <div id="control">
+                <input type="text" value="Shanghai Jiao Tong University" id="address" />
+                <input type="button" onclick="startSearchByAddress();" value="搜索" />
+            </div>
+            <div id="map" style="width: 900px; height: 300px">
+            </div>
+            <!-- /Google Map -->
+            <!--<div class="contact-intro">
+                Sed nunc tortor, sagittis quis viverra id, molestie vitae nibh. Donec vitae lacus
+                sed risus accumsan consectetur ut a ligula. Etiam vitae nisi diam, in rutrum dui.
+                In facilisis, erat sed laoreet aliquet, mauris urna placerat enim, eget varius nulla
+                lacus ut erat. Mauris faucibus orci ac turpis facilisis et tempus metus venenatis.
+                Pellentesque ornare, risus et vulputate mollis.
+            </div>-->
+            <br />
+            <br />
+            <br />
+            <br />
+            <!-- Contact Info -->
+            <div class="contact-info one-fourth">
+                <h4>Contact Info</h4>
+                <p class="address">
+                    A304, Mulan Building,<br />
+                    #800 Dongchuan Rd.,<br />
+                    Shanghai, 200240<br />
+                    P.R.China
+                </p>
+                <p class="phone">
+                    Phone: (+86)15026608763 
+                    <br />
+                    <p class="twitter-feed">
+                        <a href="mailto:baicong1990@163.com">baicong1990@163.com</a>
+                        <br />
+                        <a href="mailto:baicong@ymail.com">baicong@ymail.com</a>
+                    </p>
+                    <br />
+
+                </p>
+            </div>
+            <!-- /Contact Info -->
+            <!-- Contact Form -->
+            <div class="contact-form three-fourth last">
+                <h4>Let's keep in touch</h4>
+                <form method="post" id="contact-form" />
+                <input type="text" value="Name" name="name" default-value="Name" />
+                <input type="text" value="Email" name="email" default-value="Email" />
+                <textarea cols="88" rows="6" name="message" default-value="Message">Message</textarea>
+                <a href="mailto:baicong1990@163.com">
+                    <input type="submit" value="Submit Form " class="red" />
+                </a>
+                <!--  <img src="images/aaa.png" />-->
+            </div>
+            <!-- /Contact Form -->
+        </div>
+        <!-- /Content -->
+        <!-- Footer -->
+        <div id="footer">
+            <div class="container clearfix">
+                <!-- About -->
+                <div class="one-fourth">
+                    <a href="./index.html" class="logo">
+                        <img src="./images/logo_footer.png" alt="" style="margin-top: 5px;" /></a>
+                    <p style="font-size: 13px;">
+                        In pursuit of doing RIGHT thing,
+                        <br />
+                        and doing things RIGHT.
+                    </p>
+                </div>
+                <!-- /About -->
+                <!-- Twitter Feed -->
+                <div class="one-fourth">
+                    <h5>Miscellaneous</h5>
+                    <div class="twitter-feed" style="text-decoration: none; margin-left: 30px;">
+                        <p>
+                            <a href="http://www.renren.com/285987589" target="_blank">Renren</a>
+                        </p>
+                        <p>
+                            <a href="http://weibo.com/2913978933" target="_blank">Weibo</a>
+                        </p>
+                        <p>
+                            <a href="https://www.facebook.com/cong.bai.5" target="_blank">Facebook</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /Twitter Feed -->
+                <!-- Contacts -->
+                <div class="one-fourth">
+                    <h5>Contact Details</h5>
+                    <p class="address">
+                        800 Dongchuan Rd.,<br />
+                        Shanghai, 200240<br />
+                        P.R.China
+                    </p>
+                    <p class="phone">
+                        Phone: 86-21-34206674
+                        <br />
+                        Mobile: (+86)15026608763 
+                        <br />
+                        <p class="twitter-feed">
+                            <a href="mailto:baicong1990@163.com">baicong1990@163.com</a>
+                        </p>
+                    </p>
+                </div>
+                <!-- /Contacts -->
+                <!-- Photo Stream -->
+                <div class="one-fourth last">
+                    <h5>Photo Stream</h5>
+                    <ul class="photo-stream">
+                        <li><a href="#">
+                            <img src="./images/imgsmall/1.jpg" alt="" /></a></li>
+                        <li><a href="#">
+                            <img src="./images/imgsmall/2.jpg" alt="" /></a></li>
+                        <li><a href="#">
+                            <img src="./images/imgsmall/3.jpg" alt="" /></a></li>
+                        <li><a href="#">
+                            <img src="./images/imgsmall/4.jpg" alt="" /></a></li>
+                        <li><a href="#">
+                            <img src="./images/imgsmall/5.jpg" alt="" /></a></li>
+                        <li><a href="#">
+                            <img src="./images/imgsmall/6.jpg" alt="" /></a></li>
+                        <li><a href="#">
+                            <img src="./images/imgsmall/7.jpg" alt="" /></a></li>
+                        <li><a href="#">
+                            <img src="./images/imgsmall/8.jpg" alt="" /></a></li>
+                    </ul>
+                </div>
+                <!-- /Photo Stream -->
+            </div>
+            <div class="clear">
+            </div>
+            <div class="info container clearfix" style="margin-right: 10px;">
+                <!-- Copyright -->
+                <ul class="copyright">
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>© 2015 BAI CONG. All rights reserved.</li>
+                    <li><a href="./index.html">Latest Updated July 2015</a></li>
+                </ul>
+                <!-- /Copyright -->
+                <!-- Social Links -->
+                <ul class="social-links">
+                </ul>
+                <!-- /Social Links -->
+            </div>
+        </div>
+        <!-- /Footer -->
+    </div>
+    <!-- /Main Container -->
+</body>
+</html>
+<!--<script type="text/javascript">
+
+
+    // 百度地图API功能
+    var map = new BMap.Map("google-map");
+    var point = new BMap.Point(121.451568508625,31.037166143368);
+    map.centerAndZoom(point, 15);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+    // map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL }));  //右上角，仅包含平移和缩放按钮
+    //map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT, type: BMAP_NAVIGATION_CONTROL_PAN }));  //左下角，仅包含平移按钮
+    //map.addControl(new BMap.NavigationControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_ZOOM }));  //右下角，仅包含缩放按钮
+
+    map.addControl(new BMap.ScaleControl());                    // 添加默认比例尺控件
+
+    // map.addControl(new BMap.ScaleControl({ anchor: BMAP_ANCHOR_TOP_LEFT }));                    // 左上
+    //map.addControl(new BMap.ScaleControl({ anchor: BMAP_ANCHOR_TOP_RIGHT }));                    // 右上
+    //map.addControl(new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT }));                    // 左下
+    //map.addControl(new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT }));                    // 右下
+
+    map.addControl(new BMap.MapTypeControl({ mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP] }));     //2D图，卫星图
+
+    //map.addControl(new BMap.MapTypeControl({ anchor: BMAP_ANCHOR_TOP_LEFT }));    //左上角，默认地图控件
+</script>-->
