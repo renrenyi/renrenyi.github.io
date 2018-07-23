@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: 关于博主
 permalink: /about/
 icon: glyphicon-heart
 ---
@@ -24,5 +24,9 @@ icon: glyphicon-heart
 
 ---
 
+### 我的计算机水平
 
+个人觉得比较客观的是，比大多数非计算机专业强一些，计算机专业中等或者中偏下水平。因此，我的学习笔记适合有一些计算机基础的朋友来看。 
+
+---
 希望大家每天都开心！
