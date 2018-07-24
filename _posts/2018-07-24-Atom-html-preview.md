@@ -17,13 +17,14 @@ excerpt:
 看了下atom的大小是140M，感觉还行。
 
 下面是效果图，引用于https://blog.csdn.net/sinat_16791487/article/details/78252930。
-![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-html-preview.png)
+![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-download.png)
 
 ---
 
 ### atom下载与安装
 
 去官网下载：[https://atom.io/](https://atom.io/)
+![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-html-preview.png)
 
 安装过程很简单。
 
