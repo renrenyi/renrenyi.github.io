@@ -75,6 +75,8 @@ excerpt:
 
 ![python环境变量设置](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-test.png)
 
+*我展示的时用的python3.5.4  32位版本，因为我装了3.5.4的64位版本，不能再装了，所以用32版本做个展示。
+*我发现，在cmd中，显示我的版本是python 3.5.2，我猜可能是因为后来我安装了Anaconda3的原因，其实我的版本是3.5.4。不过没关系了，只要是3.5.x版本就好了~
 
 ### 参考
 
