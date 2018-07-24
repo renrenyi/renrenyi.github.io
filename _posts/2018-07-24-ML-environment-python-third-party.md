@@ -1,13 +1,14 @@
 ---
 layout: post
 title:  "环境搭建-Numpy、Pandas和Matplotlib"
-date:   2018-07-24 16:33:00
+date:   2018-07-24 15:17:00
 categories: 环境搭建
 excerpt: 
 ---
 
 * content
 {:toc}
+
 
 
 ## 懒人法
