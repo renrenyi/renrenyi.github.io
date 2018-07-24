@@ -19,7 +19,7 @@ excerpt:
 下面是效果图，引用于https://blog.csdn.net/sinat_16791487/article/details/78252930。
 ![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-html-preview.png)
 
---
+---
 
 ### atom下载与安装
 
