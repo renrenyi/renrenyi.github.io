@@ -66,6 +66,7 @@ excerpt:
 
 打开Windows命令提示符commond/cmd窗口。
 
+在cmd窗口输入 python，按回车，会显示python的版本信息等，而且进入到python模式。
 ![python环境变量设置](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-test.png)
 
 
