@@ -45,7 +45,8 @@ excerpt:
 
 atom-html-preview初始快捷键为ctrl+p，与atom已有快捷键冲突，我看到大家一般都建议修改为ctrl+F12，操作如下
 
-点击File->Settings->KeyBindings->your keymap file超链接->在末尾添加
+点击File->Settings->KeyBindings->your keymap file
+之后，在文件最后面机上代码：
 
 ```
 'atom-text-editor':

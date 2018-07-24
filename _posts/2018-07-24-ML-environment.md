@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "环境搭建-简介"
-date:   2018-07-24 12:00:00
+date:   2018-07-24 12:01:00
 categories: 环境搭建
 excerpt: 
 ---
