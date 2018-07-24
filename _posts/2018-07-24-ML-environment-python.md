@@ -48,7 +48,19 @@ excerpt:
 下一步。安装位置记好了，大家以后都用英文地址吧，用中文说不定什么时候就会出bug。
 ![python安装](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-2.png)
 
-下面就是安装了。
+下面就是安装了。安装完成后，我们进行小测试，看看是否安装成功。
+
+### Windows设置环境变量
+
+1. 右键点击"计算机/此电脑"，然后点击"属性"
+2. 然后点击"高级系统设置"
+3. 选择"系统变量"窗口下面的"Path",双击即可！
+4. 然后在"Path"行，添加python安装路径即可(我的C:\Python35)。
+5. 各种点确定、应用。
+
+![python环境变量设置](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-huanjingbianliang.png)
+
+
 
 ### 参考
 
