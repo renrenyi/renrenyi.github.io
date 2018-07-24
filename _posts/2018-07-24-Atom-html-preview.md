@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Atom实现html预览"
-date:   2018-07-23 20:43:54
-categories: 其他
+date:   2018-07-24 15:17:00
+categories: 小tips
 excerpt: 
 ---
 
