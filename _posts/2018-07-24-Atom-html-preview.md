@@ -10,7 +10,7 @@ excerpt:
 {:toc}
 
 
-## Why?
+### Why?
 
 之前修改静态网页都用Dreamweaver，而且喜欢实时预览。但是前段时间把Dreamweaver删了，又不想安装这么大的软件仅仅为了编辑html网页。百度了一下，发现atom+插件可以实现html网页的实时预览。
 
@@ -19,8 +19,9 @@ excerpt:
 下面是效果图，引用于https://blog.csdn.net/sinat_16791487/article/details/78252930。
 ![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-html-preview.png)
 
+--
 
-## atom下载与安装
+### atom下载与安装
 
 去官网下载：[https://atom.io/](https://atom.io/)
 
@@ -28,13 +29,16 @@ excerpt:
 
 ---
 
-## 
+### atom-html-preview插件的安装
 
-额，
+1. 获取atom-html-preview插件
+
+点击 File->Settings->Install
+![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-html-preview-search.png)
 
 ---
 
-## 参考
+### 参考
 
 https://blog.csdn.net/sinat_16791487/article/details/78252930
 
