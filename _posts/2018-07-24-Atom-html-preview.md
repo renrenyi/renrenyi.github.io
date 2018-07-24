@@ -33,8 +33,23 @@ excerpt:
 
 1. 获取atom-html-preview插件
 
-点击 File->Settings->Install，在
+点击 File->Settings->Install，在输入框中输入atom-html-preview，之后下面会出现atom-html-preview插件，点击install按钮即可。
 ![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-html-preview-search.png)
+
+---
+
+### 插件的使用
+
+打开html文件，右键，选择  Preview HTML，即可。
+
+atom-html-preview初始快捷键为ctrl+p，与atom已有快捷键冲突，我看到大家一般都建议修改为ctrl+F12，操作如下
+
+点击File->Settings->KeyBindings->your keymap file超链接->在末尾添加
+
+```
+'atom-text-editor':
+   'ctrl-F12':'atom-html-preview:toggle'
+```
 
 ---
 
