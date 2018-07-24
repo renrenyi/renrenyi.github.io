@@ -11,7 +11,7 @@ excerpt:
 
 ## Python安装及测试
 
-并不建议下载最新的版本，因为可能与其他要安装的东西不兼容，会出现很多问题。可以下载3.5.x版本的Python，我们以3.5.4为例。
+并不建议下载最新的版本，因为可能与其他要安装的东西不兼容，会出现很多问题。可以下载3.5.x版本的Python，我们以3.5为例。
 
 ---
 
@@ -55,11 +55,18 @@ excerpt:
 1. 右键点击"计算机/此电脑"，然后点击"属性"
 2. 然后点击"高级系统设置"
 3. 选择"系统变量"窗口下面的"Path",双击即可！
-4. 然后在"Path"行，添加python安装路径即可(我的C:\Python35)。
+4. 然后在"Path"行，添加python安装路径即可(我的路径是C:\Python35)。
 5. 各种点确定、应用。
 
 ![python环境变量设置](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-huanjingbianliang.png)
 
+---
+
+### 测试是否安装成功
+
+打开Windows命令提示符commond/cmd窗口。
+
+![python环境变量设置](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-test.png)
 
 
 ### 参考
