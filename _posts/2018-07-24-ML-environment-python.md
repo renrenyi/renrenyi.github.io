@@ -22,14 +22,14 @@ excerpt:
 登陆网址：[https://www.python.org/](https://www.python.org/)
 
 下载python的安装包：
-![python下载](https://github.com/renrenyi/renrenyi.github.io/blob/master/css/pics/python-download1.png)
+![python下载](https://renrenyi.github.io/css/pics/python-download1.png)
 
 请点击Downloads  > Windows   下载我们需要的版本安装包3.5.4/windows/64位。
 
 ![选择python版本](https://github.com/renrenyi/renrenyi.github.io/blob/master/css/pics/python-download2.png)
 
 
-![image](https://github.com/panacena/mengqu/blob/master/readme/Screenshot_2016-07-10-22-17- 15_zkk.com.mengqu.png)
+![image](http://7q5cdt.com1.z0.glb.clouddn.com/SublimeLinter-sublimeLinter.jpg)
 
 ### 参考
 
