@@ -22,7 +22,7 @@ excerpt:
 登陆网址：[https://www.python.org/](https://www.python.org/)
 
 下载python的安装包：
-![](https://github.com/renrenyi/renrenyi.github.io/blob/master/css/pics/python-download1.png)
+![python下载](https://github.com/renrenyi/renrenyi.github.io/blob/master/css/pics/python-download1.png)
 
 请点击Downloads  > Windows   下载我们需要的版本安装包3.5.4/windows/64位。
 
