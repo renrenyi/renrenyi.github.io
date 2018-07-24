@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "机器学习介绍"
+title:  "Atom实现html预览"
 date:   2018-07-23 20:43:54
-categories: 机器学习
+categories: 其他
 excerpt: 
 ---
 
@@ -33,7 +33,7 @@ excerpt:
 
 1. 获取atom-html-preview插件
 
-点击 File->Settings->Install
+点击 File->Settings->Install，在
 ![效果图](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/atom-html-preview-search.png)
 
 ---
