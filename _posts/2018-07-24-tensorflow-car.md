@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "车牌识别"
+title:  "TensorFlow车牌识别"
 date:   2018-07-24 20:01:01
 categories: TensorFlow
 excerpt: 
