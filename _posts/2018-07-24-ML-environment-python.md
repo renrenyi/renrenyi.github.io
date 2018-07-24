@@ -13,9 +13,13 @@ excerpt:
 
 并不建议下载最新的版本，因为可能与其他要安装的东西不兼容，会出现很多问题。可以下载3.5.x版本的Python，我们以3.5.4为例。
 
+---
+
 ### 环境
 
 我电脑是Win 10系统，64位。
+
+---
 
 ### 下载Python安装包
 
@@ -27,6 +31,13 @@ excerpt:
 请点击Downloads  > Windows   下载我们需要的版本安装包3.5.4/windows/64位。
 
 ![选择python版本](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-download2.png)
+
+
+---
+
+### 安装Python
+
+
 
 
 ### 参考
