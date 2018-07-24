@@ -37,8 +37,18 @@ excerpt:
 
 ### 安装Python
 
+选择customize installation，选上 Add python 3.5 to path
 
+![python安装](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-0.png)
 
+下一步。全部选上吧，我一般都会选上，毕竟菜鸟，以后万一哪里出bug自己找都找不到，全部装上，出bug机会少一点。
+
+![python安装](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-1.png)
+
+下一步。安装位置记好了，大家以后都用英文地址吧，用中文说不定什么时候就会出bug。
+![python安装](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-2.png)
+
+下面就是安装了。
 
 ### 参考
 
