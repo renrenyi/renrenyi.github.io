@@ -67,6 +67,12 @@ excerpt:
 打开Windows命令提示符commond/cmd窗口。
 
 在cmd窗口输入 python，按回车，会显示python的版本信息等，而且进入到python模式。
+
+之后，可以尝试输入print('hello,world')进行测试
+```print('hello,world')```
+
+如果能正常显示hello,world就可以啦。
+
 ![python环境变量设置](https://raw.githubusercontent.com/renrenyi/renrenyi.github.io/master/css/pics/python-install-test.png)
 
 
