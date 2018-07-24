@@ -26,7 +26,7 @@ excerpt:
 
 请点击Downloads  > Windows   下载我们需要的版本安装包3.5.4/windows/64位。
 
-![](https://github.com/renrenyi/renrenyi.github.io/blob/master/css/pics/python-download2.png)
+![选择python版本](https://github.com/renrenyi/renrenyi.github.io/blob/master/css/pics/python-download2.png)
 
 
 ![image](https://github.com/panacena/mengqu/blob/master/readme/Screenshot_2016-07-10-22-17- 15_zkk.com.mengqu.png)
