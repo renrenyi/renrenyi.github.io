@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "简介"
+title:  "环境搭建-简介"
 date:   2018-07-23 20:43:54
 categories: 环境搭建
 excerpt: 
